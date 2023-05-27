@@ -12,7 +12,7 @@ const server = http.createServer((req, res) => {
   let data;
   let url_part = url.parse(req.url, true);
   let query = url_part.query;
-  // console.log(url_part);
+  console.log(url_part);
 
   const headers = {
     "Access-Control-Allow-Origin": "*" /* @dev First, read about security */,

@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./Form.css";
 
 const Form = ({ activeContent, onSubmitEvent }) => {
+  const [dataStudent, setDataStudent] = useState([]);
   const [dataBank, setDataBank] = useState([]);
-  const defaultOption = "Select an Option";
-  let option;
 
   const getDataBank = async () => {
     const dataFormServer = await fetchDataBank();
@@ -14,15 +13,19 @@ const Form = ({ activeContent, onSubmitEvent }) => {
 
   useEffect(() => {
     getDataBank();
+    fetchDataStudent();
   }, []);
+
+  const fetchDataStudent = async () => {
+    const res = await fetch("/student", {});
+    const data = await res.json();
+    setDataStudent(data);
+  };
 
   const fetchDataBank = async () => {
     const res = await fetch("/bank", {});
     const data = await res.json();
     console.log(data);
-    option = data.map((item) => {
-      return `${item.namaBank}-${item.nomorRekening}`;
-    });
     return data;
   };
 
@@ -47,14 +50,37 @@ const Form = ({ activeContent, onSubmitEvent }) => {
     document.getElementById("period").value = "";
     onSubmitEvent(payment);
   };
+
+  const filterFunction = async () => {
+    let id = document.getElementById("id").value;
+    console.log(id);
+    if (id === "") {
+      setDataStudent();
+      return;
+    }
+    const res = await fetch(
+      "/student/getByName?" +
+        new URLSearchParams({
+          name: id,
+        })
+    );
+    const data = await res.json();
+    console.log(data);
+    setDataStudent(data);
+  };
+
   return (
     <div className={`form ${activeContent ? "active" : ""}`}>
       <div className="form-group">
         <label htmlFor="name" className="block col3">
-          No ID Siswa
+          Nama Siswa
         </label>
-        <div className="block col3">
-          <input type="text" name="name" id="id" className="block col12 block-input" placeholder="Rangga" />
+        <div className="block col3 dropdown-content">
+          <select id="id" className="col12 block block-input">
+            {dataStudent.map((item) => (
+              <option value={item.id}>{item.name}</option>
+            ))}
+          </select>
         </div>
       </div>
       <div className="form-group">
@@ -70,19 +96,29 @@ const Form = ({ activeContent, onSubmitEvent }) => {
           Bank
         </label>
         <div className="block col3">
-          <input type="text" name="name" id="bank" className="block col12 block-input" placeholder="BCA" />
+          <select id="bank" className="col12 block block-input">
+            {dataBank.map((item) => (
+              <option value={item.kodeBank}>
+                {item.namaBank} - {item.nomorRekening}
+              </option>
+            ))}
+          </select>
         </div>
-      </div>
-      <div className="form-group form-note">
-        <small>BCA1-0231421412</small>
-        <small>BCA2-335325233</small>
       </div>
       <div className="form-group">
         <label htmlFor="name" className="block col3">
           Periode
         </label>
         <div className="block col3">
-          <input type="text" id="period" placeholder="Jun 23" className="block col12 block-input" />
+          <select id="period" className="col12 block block-input">
+            <option value="Jun 2023">Juni 2023</option>
+            <option value="Jul 2023">Juli 2023</option>
+            <option value="Agt 2023">Agustus 2023</option>
+            <option value="Sep 2023">September 2023</option>
+            <option value="OKt 2023">Oktober 2023</option>
+            <option value="Nov 2023">November 2023</option>
+            <option value="Sep 2023">Desember 2023</option>
+          </select>
         </div>
       </div>
       <div className="form-group">

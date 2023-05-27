@@ -35,7 +35,6 @@ function App() {
 
   const changeStateActive = () => {
     setActiveContent(!activeContent);
-    console.log("Clicked");
   };
 
   const closeAlert = () => {

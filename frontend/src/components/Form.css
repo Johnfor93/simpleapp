@@ -10,7 +10,7 @@
   display: flex;
   text-align: left;
   padding: 5px 0px;
-  align-items: center;
+  align-items: start;
 }
 
 .form-note {
@@ -31,7 +31,7 @@
   display: block;
 }
 
-input.block-input {
+.block-input {
   background-color: transparent;
   border: 1px solid;
   border-radius: 5px;
@@ -41,6 +41,11 @@ input.block-input {
   color: #000;
   outline: none;
   font-size: 1rem;
+}
+
+.block-input option {
+  padding: 5px 10px;
+  height: 2rem;
 }
 
 .btn-submit {
