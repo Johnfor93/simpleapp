@@ -45,7 +45,7 @@ app.post("/payment/create", (req, res) => {
 });
 
 // Set Static File Location
-app.use(express.static(path.join(__dirname, "frontend/build")));
+app.use(express.static(path.join(__dirname, "/build")));
 
 // Set POST and make server listen
 const PORT = process.env.PORT || 3000;
