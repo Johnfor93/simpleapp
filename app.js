@@ -12,7 +12,7 @@ const server = http.createServer((req, res) => {
   let data;
   let url_part = url.parse(req.url, true);
   let query = url_part.query;
-  console.log(url_part);
+  // console.log(url_part);
 
   const headers = {
     "Access-Control-Allow-Origin": "*" /* @dev First, read about security */,
@@ -25,8 +25,10 @@ const server = http.createServer((req, res) => {
   switch (url_part.pathname) {
     case "/":
       res.writeHead(200, headers);
-      fs.readFile("./index.html", (err, data) => res.write(data));
-      res.end();
+      fs.readFile("./build/index.html", (err, data) => {
+        res.write(data);
+        res.end();
+      });
 
       break;
 
@@ -120,5 +122,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(3000);
-console.log("Server is listening on port 3000...");
+console.log("API Server is listening on port 3000...");
 console.log("Go to: http://localhost:3000");

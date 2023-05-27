@@ -1,9 +1,9 @@
 import React from "react";
 import "./Table.css";
 
-export const Table = ({ dataPayment }) => {
+export const Table = ({ dataPayment, activeContent }) => {
   return (
-    <div className="table">
+    <div className={`table ${activeContent ? "active" : ""}`}>
       <div className="t-head">
         <div className="t-data col3">Nama</div>
         <div className="t-data col3">Jumlah</div>

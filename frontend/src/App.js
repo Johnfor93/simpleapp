@@ -64,12 +64,12 @@ function App() {
   return (
     <div className="App">
       <Header></Header>
-      <Navigation onClickEvent={changeStateActive}></Navigation>
+      <Navigation onClickEvent={changeStateActive} activeContent={activeContent}></Navigation>
 
       <div className="content">
         <Alert message={messageAlert} closeAlert={closeAlert}></Alert>
         <Form activeContent={activeContent} onSubmitEvent={setData}></Form>
-        <Table dataPayment={dataPayment}></Table>
+        <Table dataPayment={dataPayment} activeContent={activeContent}></Table>
       </div>
 
       {entryDataPayment ? <ComponentPrint dataPayment={entryDataPayment} onPrint={onPrint} /> : ""}

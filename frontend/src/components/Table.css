@@ -6,6 +6,10 @@
   flex-direction: column;
 }
 
+.table.active {
+  display: none;
+}
+
 .t-head,
 .t-row {
   display: flex;
