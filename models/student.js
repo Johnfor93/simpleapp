@@ -71,4 +71,10 @@ const filterStudent = (id) => {
   });
 };
 
-module.exports = { getStudent, filterStudent };
+const getStudentByName = (name) => {
+  return murid.filter((item) => {
+    return item.name.includes(name);
+  });
+};
+
+module.exports = { getStudent, filterStudent, getStudentByName };

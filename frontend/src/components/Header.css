@@ -1,0 +1,23 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+}
+.icon-name {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 35%;
+  padding: 0.5rem 2rem 0.5rem 2.5rem;
+}
+header img {
+  height: 40px;
+  aspect-ratio: 4/3;
+  margin-right: 0.5rem;
+}

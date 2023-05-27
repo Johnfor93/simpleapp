@@ -1,0 +1,17 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 5px 40px;
+}
+
+.navigation-info {
+  flex-basis: 1;
+}
+
+.navigation-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

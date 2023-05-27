@@ -1,0 +1,37 @@
+.table {
+  padding: 1rem 0;
+  display: flexbox;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.t-head,
+.t-row {
+  display: flex;
+  width: 100%;
+}
+
+.t-head {
+  font-weight: 700;
+  font-size: 1.2rem;
+  background-color: blanchedalmond;
+}
+
+.col2 {
+  width: 16.6%;
+}
+
+.t-data {
+  padding: 0.25rem;
+  border-right: 1px solid #fff;
+  border-left: 1px solid #fff;
+}
+
+.t-row:nth-child(odd) {
+  background-color: rgb(217, 213, 210);
+}
+
+.t-row:nth-child(even) {
+  background-color: rgb(241, 237, 233);
+}

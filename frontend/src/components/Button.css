@@ -1,0 +1,37 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 10px;
+  background-color: aliceblue;
+  padding: 5px 10px;
+  margin-left: 0.5rem;
+}
+
+.button-search {
+  background-color: rgb(123, 230, 123);
+}
+
+.button-add {
+  background-color: rgb(98, 255, 255);
+}
+
+.button-list {
+  background-color: rgb(255, 201, 100);
+}
+
+.icon-btn {
+  margin-right: 1rem;
+  padding-top: 4px;
+  width: 24px;
+}
+
+.icon-btn svg {
+  fill: black;
+}
+
+.btn-text {
+  font-size: 0.75rem;
+  font-weight: 400;
+}

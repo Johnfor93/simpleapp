@@ -1,0 +1,53 @@
+.form {
+  display: none;
+}
+
+.form.active {
+  display: block;
+}
+
+.form-group {
+  display: flex;
+  text-align: left;
+  padding: 5px 0px;
+  align-items: center;
+}
+
+.form-note {
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+}
+
+.col3 {
+  width: 25%;
+}
+
+.col12 {
+  width: 100%;
+}
+
+.block {
+  display: block;
+}
+
+input.block-input {
+  background-color: transparent;
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 5px 10px;
+  height: 2rem;
+  width: 200px;
+  color: #000;
+  outline: none;
+  font-size: 1rem;
+}
+
+.btn-submit {
+  padding: 10px 10px;
+  background-color: rgb(255, 201, 100);
+  border-radius: 10px;
+  width: 7rem;
+  text-align: center;
+  cursor: pointer;
+}

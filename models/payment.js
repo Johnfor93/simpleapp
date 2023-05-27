@@ -97,10 +97,20 @@ const payment = [
   },
 ];
 
+const student = require("./student");
+const bank = require("./bank");
+
 const MAX_DATA = 10000000;
 
 const getPayment = () => {
-  return payment;
+  let data = payment.map((item) => {
+    return {
+      pembayaran: item,
+      student: student.filterStudent(item.studentID),
+      bank: bank.filterBank(item.bankCode),
+    };
+  });
+  return data;
 };
 
 const filterPayment = (id) => {
@@ -125,6 +135,7 @@ const checkPayment = (studentID, period) => {
 
 const setPayment = (studentID, period, date, codeBank, amount) => {
   if (checkPayment(studentID, period)) {
+    console.log("Masuk");
     return {
       error: "Error",
       message: "Pembayaran telah dilakukan",
@@ -145,7 +156,11 @@ const setPayment = (studentID, period, date, codeBank, amount) => {
   return {
     success: true,
     message: "Data telah tersimpan",
-    data: newPayment,
+    data: {
+      payment: newPayment,
+      student: student.filterStudent(newPayment.studentID),
+      bank: bank.filterBank(newPayment.bankCode),
+    },
   };
 };
 
